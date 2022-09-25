@@ -37,3 +37,29 @@ Text-Alignment - center, left,right, justify
 
 Text -decoration
 property - overline, line-through, underline,overline underline
+
+display: none
+visibility: hidden
+
+
+display property
+-----------------
+none 
+block
+inline
+inline-block 
+inline-flex
+inline-grid
+flex
+grid
+
+
+
+CSS Position
+--------------
+
+static  - default
+relative - space will be created
+fixed - fixed position
+absolute - no space will be created 
+sticky - will get affected by scrolling and get fixed

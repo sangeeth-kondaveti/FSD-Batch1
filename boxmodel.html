@@ -10,10 +10,8 @@
             width: 100px;
             padding: 20px;
             border: 10px solid black;
-            margin-top:100px;
-            margin-bottom:100px;
-            margin-right:200px;
-            margin-left:100px;
+            margin:10px;              
+            display: inline-block;
         }
         .para2 {
             text-align: justify;
@@ -38,19 +36,82 @@
         .para6 {
             text-decoration: overline underline;
             text-decoration-color: red;
-            text-shadow: 2px 2px;
+            text-shadow: 1px 1px;
         }
+       
+        /* p{
+            display: inherit;
+        } */
+        a{
+            display: inline-block;
+        }
+        h1 {
+            visibility: hidden;
+        }
+        .static {
+             position: sticky;
+             border: 5px solid black;
+             top:40px;
+             left:40px;
+             /* left: 20px; */
+        }
+        /* .static1 {
+             position: absolute;
+             border: 5px solid black;
+             /* left: 20px; */
+             /* top:40px;
+             left:40px; */
+        } */
+        * {
+  box-sizing: border-box;
+}
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: red;
+  color: white;
+}
+
+#two {
+  position: relative;
+  top: 50px;
+  left: 50px;
+  background: blue;
+}
     </style>
 </head>
 <body>
-    <h1>Hello Everyone</h1>
-    <img src="box-model.png" width="400" height="300" alt="BOX MODEL"  />
-  <p class="para1">This picture represents the BOX MODEL</p>
+    <!-- <h1>Hello Everyone</h1> -->
+    <!-- <img src="box-model.png" width="400" height="300" alt="BOX MODEL"  /> -->
+  <span class="para1">This picture represents the BOX MODEL</span>
+<!-- 
   <p class="para2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
   <p class="para3">overline - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
   <p class="para4">line-through - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
   <p class="para5">underline - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-  <p class="para6">overline & underline - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  <p class="para6">overline & underline - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+  
+  <p class="static">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  <p >Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  <span >This picture represents the BOX MODEL</span>
+  <span >This picture represents the BOX MODEL</span>
+<a href="notes.txt" target="_blank">Link</a>
+<h1>This is hidden heading</h1>
+<!-- position -->
+<!-- <p class="static">This is  positioning.</p>
+<p class="static1">This is  positioning.</p> -->
+<div class="box" id="one">One</div>
+<div class="box" id="two">Two</div>
+<div class="box" id="three">Three</div>
+<div class="box" id="four">Four</div>
+
+<p class="para2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+  <p class="para3">overline - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  <p class="para4">line-through - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  <p class="para5">underline - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  <p class="para6">overline & underline - Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
 
 </body>
 </html>
