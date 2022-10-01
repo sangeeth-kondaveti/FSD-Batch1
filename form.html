@@ -5,18 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <style>
+        .body-style {
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
-    <form action="index.html">
-        <label for="fname">First Name:</label>
+<body class="body-style">
+    <form >
+        <!-- <label for="fname">First Name:</label>
         <input  type="text" id="fname" name="fname" value="Sankar"> <br><br>
         <label for="lname">Last Name:</label>
         <input  type="text" id="lname" name="lname" value="Moorthi"><br><br>
         <label for="email">Email:</label>
         <input  type="email" id="email" name="email" value="sankarmoorthy@gmail.com"><br><br>
         <label for="gender">Gender</label><br><br>
-        <input type="radio" id="male" name="male" value="Male" >
-        <label for="male" >Male</label>
+        <input type="radio" id="male" name="male" value="Male" >Male</input>
+      
         <input type="radio" id="female" name="female" value="Female" >
         <label for="female">Female</label><br><br>
         <input type="checkbox" id="profession" name="profession" value="profession" >
@@ -25,7 +30,36 @@
         <label for="nonprofession">Non-Profession</label><br><br>
         <textarea name="message" style="width:100px; height:100px" ></textarea><br>
         <input type="submit" value="Submit">
-        <button type="submit" onClick="alert('Hello Everyone')">Click Here</button>
+        <button type="submit" onClick="alert('Hello Everyone')">Click Here</button> -->
+       <h1>Form Example</h1>
+       <label>First Name:</label>
+       <input type="text" name="text" placeholder="Enter the Firstname" required>
+       <br><br>
+       <label>Email:</label>
+       <input type="email" name="email" placeholder="Enter the Email" required>
+       <br><br>
+       <label>Gender: </label>  <br><br>
+       <input type="radio" name="gender">Female</input>
+       <input type="radio" name="gender">Male</input>
+       <br><br>
+       <label>Select Preference:</label>
+       <input type="checkbox" name="preference" >Morning</input>
+       <input type="checkbox" name="preference" >Afternoon</input>
+       <input type="checkbox" name="preference" >Evening</input>
+       <br><br>
+      <label>Time preference:</label>
+      <select>
+        <option value="6-7">6 AM - 7 PM</option>
+        <option value="5-1">5 AM - 1 PM</option>
+        <option value="8-10">8 AM - 10 PM</option>
+        <optgroup label="choose timing">
+            <option value="2-4">3 PM</option>
+            <option value="2-4">10 PM</option>
+        </optgroup>
+       
+      </select>
+      <br><br>
+      <button type="submit">Submit</button>
     </form>
 </body>
 </html>

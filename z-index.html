@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* img {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        } */
+        .container {
+           position: relative;
+        }
+        .z-1 {
+            position:relative;
+            z-index: 1;
+            border: 1px solid black;
+            height: 100px;
+            margin:20px;
+        }
+        .z-2 {
+            position:absolute;
+            z-index: 3;
+            background-color: grey;
+            height: 60px;
+            width: 70%;
+            top: 50px;
+            left: 50px;
+        }
+        .z-3 {
+          position:  absolute;
+          z-index: 2;
+          background-color: green;
+            height: 100px;
+            width: 30%;
+            top: -25px;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+   <h1>Z-index Example</h1> 
+   <!-- <img src="autumn.jpg">
+   <p>This is Z-index Scenery royalty-free images. 10,988,337 scenery stock photos, vectors, and illustrations are available royalty-free. See scenery stock video clips.</p> -->
+
+ <div class="container">
+    <div class="z-1">
+        Z-index 1      
+    </div>
+    <div class="z-2">
+        Z-index 2      
+    </div>
+    <div class="z-3">
+        Z-index 3      
+    </div>
+ </div>
+</body>
+</html>

@@ -53,7 +53,7 @@ inline-grid
 flex
 grid
 
-
+display - inline, block, inline-block
 
 CSS Position
 --------------
@@ -63,3 +63,7 @@ relative - space will be created
 fixed - fixed position
 absolute - no space will be created 
 sticky - will get affected by scrolling and get fixed
+
+
+z-index
+--------
