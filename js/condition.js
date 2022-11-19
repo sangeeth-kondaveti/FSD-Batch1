@@ -27,8 +27,13 @@ a === b //false
 var a = 10
 var b = 20
 
-a>b //  false
-b>a // true
+// greater than >
+// lesser than <
+//greater than or equal to - >=
+//smaller than or equal to - <=
+
+a>b //  false                              
+b>a // true  
 a >= b //false
 10 >= 20 // false
 a<=b // true
