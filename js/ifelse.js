@@ -1,8 +1,34 @@
+//to check 1 condition
+// --------------------------
+
+// if(condition){
+
+// }
+
+//to check 2 condition
+// ------------------------
+
 // if(condition){
 
 // }else {
 
 // }
+
+//to check 3 condition
+// -------------------------
+
+// if(condition){
+
+// }elseif(condition){
+
+// }else {
+
+// }
+
+
+
+
+
 // `` - Backtick
 let a = 15;
 if(a%2 == 0){
