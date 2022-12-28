@@ -1,3 +1,51 @@
+
+Skills
+----------
+HTML -- Raw Structure
+CSS - look and feel(Design)
+javascript -  functionality
+Bootstrap - frontend framework - easy and faster  
+          templates - forms, button, cards, image carousals
+          adv
+          -------
+          Easy to use
+          Responsive - suitable for all device
+          Mobile-first approach
+          Browser compatibility
+React - frontend  - js library
+Node JS - backend - Query DB
+MongoDB - DB
+
+Links
+---------
+
+https://code.visualstudio.com/download - vs code install
+https://github.com/ - github - create account
+https://nodejs.org/en/ - install
+https://git-scm.com/downloads - install
+https://github.com/SangeethaShanmugm?tab=repositories  
+https://www.linkedin.com/ - linkedin - create account
+https://www.netlify.com/ - create account(using github)
+
+vs code extension
+------------------
+
+spell check
+Tabnine
+vscode-icons
+eslint
+Gitlens
+githistory
+Prettier - Code formatter
+Auto Close Tag
+Auto Import - ES6 & templates
+Auto Rename Tag
+Javascript code snippet
+Live server
+
+
+
+
 CSS Selectors
 -----------------
 
