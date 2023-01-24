@@ -115,3 +115,21 @@ sticky - will get affected by scrolling and get fixed
 
 z-index
 --------
+
+order an element
+stack - FILO/ LIFO
+
+Bootstrap
+----------
+
+This is a frontend framework - easy and faster
+templates -   button, form, image and cards
+
+
+Advantages
+----------
+
+easy to use
+Responsive
+Mobile-first approach
+Browser Compatible
