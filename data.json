@@ -1,0 +1,19 @@
+{
+  "employee": [
+    {
+      "fname": "John",
+      "lname": "Mickenzie",
+      "email": "john@gmail.com",
+      "password": "123",
+      "gender": "male",
+      "lang": [
+        "html",
+        "css",
+        "js",
+        "bootstrap"
+      ],
+      "region": "India",
+      "id": 1
+    }
+  ]
+}
