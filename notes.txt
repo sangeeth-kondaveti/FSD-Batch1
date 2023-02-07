@@ -133,3 +133,12 @@ easy to use
 Responsive
 Mobile-first approach
 Browser Compatible
+
+form
+-----
+
+npx json-server --watch data.json --port 7600
+
+
+container - elements with content  - fixed width container
+container-fluid - full width container
