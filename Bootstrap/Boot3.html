@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <body>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link href="boot.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/0389a5ff73.js" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- <button>
+            <span class="icon-bar">Hello</span>
+          </button> -->
+          <a class="navbar-brand" href="#">Developer Funnel</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#"
+                ><span class="glyphicon glyphicon-log-in">LogIn</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="glyphicon glyphicon-user">Register</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="container">
+      <div class="carousel slide" id="devCarousel" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li
+            data-target="#devCarousel"
+            class="active"
+            data-slide-to="0"
+          ></li>
+          <li data-target="#devCarousel" data-slide-to="1"></li>
+          <li data-target="#devCarousel" data-slide-to="2"></li>
+          <li data-target="#devCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img
+              class="slideImg"
+              src="https://t4.ftcdn.net/jpg/05/41/39/13/360_F_541391385_8CaR4zpuWJyjpv5hLJ17yFznbKZJU835.jpg"
+            />
+          </div>
+          <div class="item">
+            <img
+              class="slideImg"
+              src="https://images.newindianexpress.com/uploads/user/imagelibrary/2019/3/7/w900X450/Take_in_the_Scenery.jpg?w=400&dpr=2.6"
+            />
+          </div>
+          <div class="item">
+            <img
+              class="slideImg"
+              src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2018/02/AK-Homer-109256-sunset-48.jpg?fit=750%2C500&ssl=1"
+            />
+          </div>
+          <div class="item">
+            <img
+              class="slideImg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrxCfuRcWMi1cCX9fVN8Z4o7B2a4cRqdAhkZwUmPfiVnmKLUbbsUqBMyVJza15rHtt_Q&usqp=CAU"
+            />
+          </div>
+        </div>
+        <a
+          class="left carousel-control"
+          href="#devCarousel"
+          data-slide="prev"
+        >
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a
+          class="right carousel-control"
+          href="#devCarousel"
+          data-slide="next"
+        >
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+      <hr/>
+
+      <!-- modal -->
+      <div class="container">
+        <h2>Modal Example</h2>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+         <div class="modal" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+         </div>
+      </div>
+    <!-- panel -->
+      <hr/>
+      <span class="glyphicon glyphicon-edit editicon"></span>
+      <span class="glyphicon glyphicon-trash trashicon"></span>
+      <i class="fa-brands fa-facebook"></i>
+      <hr/>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Students</div>
+        <div class="panel-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John</td>
+                        <td>UI</td>
+                        <td>                          
+<button type="button" class="btn btn-success"> <span class="glyphicon glyphicon-edit "></span></button>
+<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash "></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jack</td>
+                        <td>HTML</td>
+                        <td>                          
+<button type="button" class="btn btn-success"> <span class="glyphicon glyphicon-edit "></span></button>
+<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash "></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Mick</td>
+                        <td>CSS</td>
+                        <td>                          
+<button type="button" class="btn btn-success"> <span class="glyphicon glyphicon-edit "></span></button>
+<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash "></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
