@@ -142,3 +142,31 @@ npx json-server --watch data.json --port 7600
 
 container - elements with content  - fixed width container
 container-fluid - full width container
+
+
+Bootstrap 3
+----------------
+
+768px < xs
+768px > sm
+992px > md
+1200px > lg
+
+Bootstrap 4
+-------------
+
+576px < col-
+
+576px > sm
+768px > md
+992px > lg
+1200px > xl
+
+Bootstrap 5
+-----------
+
+576px > sm
+768px > md
+992px > lg
+1200px > xl
+1400px > xxl

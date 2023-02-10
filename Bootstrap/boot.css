@@ -16,3 +16,41 @@
 .fa-brands {
     font-size: 50px;
 }
+
+#first {
+    height: 200px;
+    background-color: olive;
+}
+
+
+#second {
+    height: 200px;
+    background-color: rgb(47, 214, 55);
+}
+
+#third {
+    height: 200px;
+    background-color: rgb(17, 20, 161);
+}
+
+#fourth {
+    height: 200px;
+    background-color: rgb(82, 8, 132);
+}
+
+#fifth {
+    height: 200px;
+    background-color: rgb(132, 8, 29);
+}
+
+
+#sixth {
+    height: 200px;
+    background-color: rgb(181, 83, 170);
+}
+
+
+#seventh {
+    height: 200px;
+    background-color: rgb(181, 143, 149);
+}
