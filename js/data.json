@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Avengers",
+    "rating": 5,
+    "type": "Action"
+  },
+  {
+    "name": "Frozen",
+    "rating": 4.5,
+    "type": "Animation"
+  },
+  {
+    "name": "Frozen",
+    "rating": 4.5,
+    "type": "Animation"
+  },
+  {
+    "name": "Frozen",
+    "rating": 4.5,
+    "type": "Animation"
+  }
+]
