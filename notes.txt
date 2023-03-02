@@ -170,3 +170,30 @@ Bootstrap 5
 992px > lg
 1200px > xl
 1400px > xxl
+
+
+Javascript
+------------
+
+execute line by line  -  synchronous 
+
+synchronous code
+🧑‍🍳 - normal cook
+1. make coffee - 2 ✅
+2. Toast bread - 3 ✅
+3. boil egg  - 5   ✅
+10 min
+
+Asynchronous code
+
+🧑‍🍳 - smart cook
+1. make coffee - 2 ✅
+2. Toast bread - 3 ✅
+3. boil egg  - 5   ✅
+10 min
+
+setTimeout
+-----------
+=> execute block of code{} - after a specified time
+
+setTimeout(function, milliseconds)
