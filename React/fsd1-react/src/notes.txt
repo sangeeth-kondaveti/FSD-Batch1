@@ -1,0 +1,12 @@
+hooks - function
+
+useState
+const [state, setState] = useState(initialValue)
+
+state of mind
+state of art technology
+
+state-current
+
+const [like, setLike] = useState(10)
+

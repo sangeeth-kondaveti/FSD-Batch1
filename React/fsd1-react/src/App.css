@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.profile-pic {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.App>div:nth-child(3)>.profile-pic {
+  border-radius: 0px;
+}
