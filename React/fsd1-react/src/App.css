@@ -12,3 +12,7 @@
 .App>div:nth-child(3)>.profile-pic {
   border-radius: 0px;
 }
+
+.add-color {
+  display: flex;
+}
