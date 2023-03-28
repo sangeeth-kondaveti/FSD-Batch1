@@ -1,0 +1,15 @@
+Type
+-----
+1. commonjs  - old format
+------------
+
+export - modules.exports = fileName
+import  -const double  = require("./double.js")
+
+
+2. module - new format
+-----------
+
+
+// 1. named import & export  - preferred
+// 2. default import & export
