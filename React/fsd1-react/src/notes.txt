@@ -49,3 +49,14 @@ const [like, setLike] = useState(10)
     },
   ];
   
+
+
+    // const book = {
+  //   name: "The Charlotte's  web",
+  //   poster:
+  //     "https://m.media-amazon.com/images/M/MV5BMTQ5MTUzMTAzMl5BMl5BanBnXkFtZTcwNTE0NTcyMw@@._V1_.jpg",
+  //   rating: 8,
+  //   summary:
+  //     "Charlotte's Web is a book of children's literature by American author E. B. White and illustrated by Garth Williams; it was published on October 15, 1952, by Harper & Brothers. The novel tells the story of a livestock pig named Wilbur and his friendship with a barn spider named Charlotte",
+  // };
+  //console.log(book);
