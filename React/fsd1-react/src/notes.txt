@@ -60,3 +60,36 @@ const [like, setLike] = useState(10)
   //     "Charlotte's Web is a book of children's literature by American author E. B. White and illustrated by Garth Williams; it was published on October 15, 1952, by Harper & Brothers. The novel tells the story of a livestock pig named Wilbur and his friendship with a barn spider named Charlotte",
   // };
   //console.log(book);
+
+
+
+
+   const [name, setName] = useState("Mick");
+  const [nameList, setNameList] = useState(["jack", "john", "peter"]);
+
+
+    {nameList.map((nl) => (
+        <Sample name={nl} />
+      ))}
+      <input
+        type="text"
+        placeholder="Enter Name"
+        onChange={(event) => setName(event.target.value)}
+      />
+
+      <button
+        onClick={() => {
+          setNameList([...nameList, name]);
+          console.log(nameList);
+        }}
+      >
+        Change Name
+      </button>
+
+      function Sample({ name }) {
+  return (
+    <div>
+      <h1>Welcome {name}</h1>
+    </div>
+  );
+}

@@ -1,6 +1,7 @@
-import { useState } from "react";
 import "./App.css";
+import { useState } from "react";
 import { Counter } from "./Counter";
+import { ChangeName } from "./ChangeName";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -64,50 +65,30 @@ const INITIAL_BOOK_LIST = [
 
 export default function App() {
   const bookList = INITIAL_BOOK_LIST;
-  const [name, setName] = useState("Mick");
-  const [nameList, setNameList] = useState(["jack", "john", "peter"]);
 
+  //console.log(nameList);
   return (
     <div className="App">
       <h1 style={{ textAlign: "center" }}>Book List</h1>
-      {/* <h1>{name}</h1> */}
-
-      {nameList.map((nl) => (
-        <Sample name={nl} />
-      ))}
-      <input
-        type="text"
-        placeholder="Enter Name"
-        onChange={(event) => setName(event.target.value)}
-      />
-
-      <button onClick={() => setNameList([name])}>Change Name</button>
-      {/* <div class="book-list">
-        {bookList.map((bk) => (
-          <Book book={bk} />
+      {/* <ChangeName /> */}
+      <div className="book-list">
+        {bookList.map((bk, index) => (
+          <Book key={index} book={bk} />
         ))}
-      </div> */}
+      </div>
     </div>
   );
   //JSX ends
 }
 
-function Sample({ name }) {
-  return (
-    <div>
-      <h1>Welcome {name}</h1>
-    </div>
-  );
-}
-
 function Book({ book }) {
-  //const [show, setShow] = useState(true)
+  const [show, setShow] = useState(true);
   //consitional styling
   const styles = {
     color: book.rating > 8 ? "green" : "red",
   };
   const summaryStyle = {
-    display: "block",
+    display: show ? "block" : "none",
   };
 
   // true - visible - block;
@@ -116,16 +97,17 @@ function Book({ book }) {
     <div>
       <div className="book-container">
         <img className="book-poster" src={book.poster} alt={book.name} />
-        <div class="book-spec">
+        <div className="book-spec">
           <h2 className="book-name">{book.name}</h2>
           <p style={styles} className="book-rating">
             ⭐{book.rating}
           </p>
         </div>
-        <button>Toggle description</button>
-        <p style={summaryStyle} className="book-summary">
+        <button onClick={() => setShow(!show)}>Toggle description</button>
+        {/* <p style={summaryStyle} className="book-summary">
           {book.summary}
-        </p>
+        </p> */}
+        {show ? <p className="book-summary">{book.summary}</p> : ""}
         <Counter />
       </div>
     </div>
