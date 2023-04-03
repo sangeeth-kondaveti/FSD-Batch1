@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ColorBox } from "./ColorBox";
 
-function AddColor() {
+export function AddColor() {
   //let color = "crimson"
   const [color, setColor] = useState("skyblue");
   //const colorList = ["orange", "pink", "red", "purple"];
