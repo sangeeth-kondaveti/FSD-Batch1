@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 import { Counter } from "./Counter";
 import { AddColor } from "./AddColor";
 import { DisplayData } from "./DisplayData";
@@ -90,12 +90,18 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<BookList />} />
+        <Route path="/books/:bookid" element={<BookDetail />} />
         <Route path="/game" element={<AddColor />} />
         <Route path="/data" element={<DisplayData />} />
       </Routes>
     </div>
   );
   //JSX ends
+}
+
+function BookDetail() {
+  const { bookid } = useParams();
+  return <h1>Book Detail Page - {bookid}</h1>;
 }
 
 function Home() {
