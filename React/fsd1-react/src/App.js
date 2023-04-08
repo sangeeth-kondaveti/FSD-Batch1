@@ -4,6 +4,12 @@ import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 import { Counter } from "./Counter";
 import { AddColor } from "./AddColor";
 import { DisplayData } from "./DisplayData";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import IconButton from "@mui/material/IconButton";
+import InfoIcon from "@mui/icons-material/Info";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -119,29 +125,32 @@ function BookList() {
   return (
     <div>
       <div className="add-book-form">
-        <input
-          value={name}
-          type="text"
+        <TextField
+          label="Name"
+          variant="outlined"
           onChange={(event) => setName(event.target.value)}
-          placeholder="Enter name"
         />
-        <input
-          type="text"
+
+        <TextField
+          label="Poster"
+          variant="outlined"
           onChange={(event) => setPoster(event.target.value)}
-          placeholder="Enter poster"
         />
-        <input
-          type="text"
+        <TextField
+          label="Rating"
+          variant="outlined"
           onChange={(event) => setRating(event.target.value)}
-          placeholder="Enter rating"
         />
-        <input
-          type="text"
+        <TextField
+          label="Summary"
+          variant="outlined"
           onChange={(event) => setSummary(event.target.value)}
-          placeholder="Enter summary"
         />
+
         {/* copy the bookList and newbook */}
-        <button
+
+        <Button
+          variant="contained"
           onClick={() => {
             const newBook = {
               name: name,
@@ -153,7 +162,21 @@ function BookList() {
           }}
         >
           Add Book
-        </button>
+        </Button>
+
+        {/* <button
+          onClick={() => {
+            const newBook = {
+              name: name,
+              poster: poster,
+              rating: rating,
+              summary: summary,
+            };
+            setBookList([...bookList, newBook]);
+          }}
+        >
+          Add Book
+        </button> */}
       </div>
 
       <div className="book-list">
@@ -189,8 +212,23 @@ function Book({ book, id }) {
             ⭐{book.rating}
           </p>
         </div>
-        <button onClick={() => setShow(!show)}>Toggle description</button>
-        <button onClick={() => navigate("/books/" + id)}>Info</button>
+        <IconButton
+          aria-label="toggle-description"
+          color="primary"
+          onClick={() => setShow(!show)}
+        >
+          {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </IconButton>
+        <IconButton
+          aria-label="info"
+          color="primary"
+          onClick={() => navigate("/books/" + id)}
+        >
+          <InfoIcon />
+        </IconButton>
+
+        {/* <button onClick={() => setShow(!show)}>Toggle description</button> */}
+        {/* <button onClick={() => navigate("/books/" + id)}>Info</button> */}
         {/* <p style={summaryStyle} className="book-summary">
           {book.summary}
         </p> */}
