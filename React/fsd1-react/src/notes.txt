@@ -93,3 +93,18 @@ const [like, setLike] = useState(10)
     </div>
   );
 }
+
+
+
+BookList(data) -> Book(data) -> Counter(data)
+               -> Contact(data)
+
+React flows in one direction -  unidirectional
+
+Pass from parent to child ✅
+Child to Parent - ❌
+
+                 App (bookList, setBookList) (🗻)
+
+
+      BookList (🌊)       BookDetail (🌊)        

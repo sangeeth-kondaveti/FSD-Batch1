@@ -1,15 +1,11 @@
 import "./App.css";
 import { useState } from "react";
-import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
-import { Counter } from "./Counter";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { AddColor } from "./AddColor";
 import { DisplayData } from "./DisplayData";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import IconButton from "@mui/material/IconButton";
-import InfoIcon from "@mui/icons-material/Info";
+import { Home } from "./Home";
+import { BookList } from "./BookList";
+import { BookDetail } from "./BookDetail";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -40,6 +36,7 @@ const INITIAL_BOOK_LIST = [
     summary:
       "There's no secret to The Secret. The book and movie simply state that your thoughts control the universe. Through this “law of attraction” you “manifest” your desires. “It is exactly like placing an order from Link catalogue",
     rating: 8.8,
+    trailer: "https://www.youtube.com/embed/san61qTwWsU",
   },
   {
     name: "Discover Your Destiny",
@@ -72,8 +69,8 @@ const INITIAL_BOOK_LIST = [
 ];
 
 export default function App() {
-  //console.log(nameList);
-
+  //Lifting the state up - lifted from child to parent
+  const [bookList, setBookList] = useState(INITIAL_BOOK_LIST);
   return (
     <div className="App">
       <nav>
@@ -95,150 +92,32 @@ export default function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/books" element={<BookList />} />
-        <Route path="/books/:bookid" element={<BookDetail />} />
+        <Route
+          path="/books"
+          element={<BookList bookList={bookList} setBookList={setBookList} />}
+        />
+        <Route
+          path="/books/:bookid"
+          element={<BookDetail bookList={bookList} />}
+        />
         <Route path="/game" element={<AddColor />} />
         <Route path="/data" element={<DisplayData />} />
+        <Route path="/novel" element={<Navigate replace to="/books" />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>
     </div>
   );
   //JSX ends
 }
 
-function BookDetail() {
-  const { bookid } = useParams();
-  return <h1>Book Detail Page - {bookid}</h1>;
-}
-
-function Home() {
-  return <h1>Welcome to Book App🥳🥳🥳</h1>;
-}
-
-function BookList() {
-  //const bookList = INITIAL_BOOK_LIST;
-  const [bookList, setBookList] = useState(INITIAL_BOOK_LIST);
-  const [name, setName] = useState("");
-  const [poster, setPoster] = useState("");
-  const [rating, setRating] = useState("");
-  const [summary, setSummary] = useState("");
-
+function NotFound() {
   return (
     <div>
-      <div className="add-book-form">
-        <TextField
-          label="Name"
-          variant="outlined"
-          onChange={(event) => setName(event.target.value)}
-        />
-
-        <TextField
-          label="Poster"
-          variant="outlined"
-          onChange={(event) => setPoster(event.target.value)}
-        />
-        <TextField
-          label="Rating"
-          variant="outlined"
-          onChange={(event) => setRating(event.target.value)}
-        />
-        <TextField
-          label="Summary"
-          variant="outlined"
-          onChange={(event) => setSummary(event.target.value)}
-        />
-
-        {/* copy the bookList and newbook */}
-
-        <Button
-          variant="contained"
-          onClick={() => {
-            const newBook = {
-              name: name,
-              poster: poster,
-              rating: rating,
-              summary: summary,
-            };
-            setBookList([...bookList, newBook]);
-          }}
-        >
-          Add Book
-        </Button>
-
-        {/* <button
-          onClick={() => {
-            const newBook = {
-              name: name,
-              poster: poster,
-              rating: rating,
-              summary: summary,
-            };
-            setBookList([...bookList, newBook]);
-          }}
-        >
-          Add Book
-        </button> */}
-      </div>
-
-      <div className="book-list">
-        {bookList.map((bk, index) => (
-          <Book key={index} book={bk} id={index} />
-        ))}
-      </div>
+      <img
+        src="https://cdn.svgator.com/images/2022/01/404-page-animation-example.gif"
+        alt="404notfound"
+      />
     </div>
   );
 }
-
-function Book({ book, id }) {
-  const [show, setShow] = useState(true);
-  //conditional styling
-  const styles = {
-    color: book.rating > 8 ? "green" : "red",
-  };
-  const summaryStyle = {
-    display: show ? "block" : "none",
-  };
-  const navigate = useNavigate();
-  // true - visible - block;
-  // false - hide - none;
-  return (
-    <div>
-      <div className="book-container">
-        <img className="book-poster" src={book.poster} alt={book.name} />
-        <div className="book-spec">
-          <h2 className="book-name">
-            {book.name}-{id}
-          </h2>
-          <p style={styles} className="book-rating">
-            ⭐{book.rating}
-          </p>
-        </div>
-        <IconButton
-          aria-label="toggle-description"
-          color="primary"
-          onClick={() => setShow(!show)}
-        >
-          {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </IconButton>
-        <IconButton
-          aria-label="info"
-          color="primary"
-          onClick={() => navigate("/books/" + id)}
-        >
-          <InfoIcon />
-        </IconButton>
-
-        {/* <button onClick={() => setShow(!show)}>Toggle description</button> */}
-        {/* <button onClick={() => navigate("/books/" + id)}>Info</button> */}
-        {/* <p style={summaryStyle} className="book-summary">
-          {book.summary}
-        </p> */}
-        {show ? <p className="book-summary">{book.summary}</p> : ""}
-        <Counter />
-      </div>
-    </div>
-  );
-}
-
-// Task - 15mins
-// Add Book - 4 input box(name, poster, rating,summary)
-// Add Book button
