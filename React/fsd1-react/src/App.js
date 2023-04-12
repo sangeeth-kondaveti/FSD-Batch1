@@ -6,6 +6,7 @@ import { DisplayData } from "./DisplayData";
 import { Home } from "./Home";
 import { BookList } from "./BookList";
 import { BookDetail } from "./BookDetail";
+import { AddBook } from "./AddBook";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -83,6 +84,9 @@ export default function App() {
             <Link to="/books">BookList</Link>
           </li>
           <li>
+            <Link to="/books/add">Add Book</Link>
+          </li>
+          <li>
             <Link to="/game">AddColor</Link>
           </li>
           <li>
@@ -99,6 +103,10 @@ export default function App() {
         <Route
           path="/books/:bookid"
           element={<BookDetail bookList={bookList} />}
+        />
+        <Route
+          path="/books/add"
+          element={<AddBook bookList={bookList} setBookList={setBookList} />}
         />
         <Route path="/game" element={<AddColor />} />
         <Route path="/data" element={<DisplayData />} />
