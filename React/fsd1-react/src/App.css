@@ -11,6 +11,7 @@
 
 .add-color {
   display: flex;
+  margin-top: 50px
 }
 
 .book-container {
@@ -48,13 +49,15 @@
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 16px;
+  margin-top: 50px
 }
 
 .add-book-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 16px
+  margin-bottom: 16px;
+  margin-top: 50px
 }
 
 .book-detail-container {

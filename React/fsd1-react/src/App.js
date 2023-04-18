@@ -1,12 +1,19 @@
 import "./App.css";
 import { useState } from "react";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
 import { AddColor } from "./AddColor";
 import { DisplayData } from "./DisplayData";
 import { Home } from "./Home";
 import { BookList } from "./BookList";
 import { BookDetail } from "./BookDetail";
 import { AddBook } from "./AddBook";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -72,19 +79,63 @@ const INITIAL_BOOK_LIST = [
 export default function App() {
   //Lifting the state up - lifted from child to parent
   const [bookList, setBookList] = useState(INITIAL_BOOK_LIST);
+  //1. creating - createContext ✅
+  //2. Publisher - provider - context.Provider ✅
+  //3. Subscriber - useContext - useContext(context) ❌
+  const [mode, setMode] = useState("light");
+
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
+
+  const navigate = useNavigate();
+
   return (
-    <div className="App">
-      <nav>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="App">
+        <AppBar position="static">
+          <Toolbar>
+            <Button color="inherit" onClick={() => navigate("/")}>
+              Home
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/books")}>
+              BookList
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/books/add")}>
+              Add Book
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/game")}>
+              AddColor
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/data")}>
+              DisplayData
+            </Button>
+            <Button
+              style={{ marginLeft: "auto" }}
+              color="inherit"
+              onClick={() => setMode(mode === "light" ? "dark" : "light")}
+              startIcon={
+                mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />
+              }
+            >
+              {mode === "light" ? "dark" : "light"} Mode
+            </Button>
+          </Toolbar>
+        </AppBar>
+        {/* <nav>
         <ul>
           <li>
-            {/* Link change page without refresh */}
+            Link change page without refresh
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/books">BookList</Link>
           </li>
           <li>
-            <Link to="/books/add">Add Book</Link>
+            <Link to="/books">Add Book</Link>
           </li>
           <li>
             <Link to="/game">AddColor</Link>
@@ -93,28 +144,29 @@ export default function App() {
             <Link to="/data">DisplayData</Link>
           </li>
         </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/books"
-          element={<BookList bookList={bookList} setBookList={setBookList} />}
-        />
-        <Route
-          path="/books/:bookid"
-          element={<BookDetail bookList={bookList} />}
-        />
-        <Route
-          path="/books/add"
-          element={<AddBook bookList={bookList} setBookList={setBookList} />}
-        />
-        <Route path="/game" element={<AddColor />} />
-        <Route path="/data" element={<DisplayData />} />
-        <Route path="/novel" element={<Navigate replace to="/books" />} />
-        <Route path="/404" element={<NotFound />} />
-        <Route path="*" element={<Navigate replace to="/404" />} />
-      </Routes>
-    </div>
+      </nav> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/books"
+            element={<BookList bookList={bookList} setBookList={setBookList} />}
+          />
+          <Route
+            path="/books/:bookid"
+            element={<BookDetail bookList={bookList} />}
+          />
+          <Route
+            path="/books/add"
+            element={<AddBook bookList={bookList} setBookList={setBookList} />}
+          />
+          <Route path="/game" element={<AddColor />} />
+          <Route path="/data" element={<DisplayData />} />
+          <Route path="/novel" element={<Navigate replace to="/books" />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate replace to="/404" />} />
+        </Routes>
+      </div>
+    </ThemeProvider>
   );
   //JSX ends
 }
