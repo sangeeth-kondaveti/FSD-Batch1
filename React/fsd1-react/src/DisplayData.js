@@ -30,6 +30,7 @@ export function DisplayData() {
       category: "Fruit",
     },
   ];
+
   return (
     <div>
       <h1>Display Data</h1>
@@ -37,7 +38,8 @@ export function DisplayData() {
       <img
         src={user.imageUrl}
         alt={user.name}
-        style={{ width: user.imageSize, height: user.imageSize }} />
+        style={{ width: user.imageSize, height: user.imageSize }}
+      />
 
       <table
         style={{ border: " 1px solid black", width: "800px", height: "200px" }}
@@ -47,9 +49,9 @@ export function DisplayData() {
           <th>title</th>
           <th>category</th>
         </tr>
-        {products.map((product) => {
+        {products.map((product, index) => {
           return (
-            <tr>
+            <tr key={index}>
               <td>{product.id}</td>
               <td>{product.title}</td>
               <td>{product.category}</td>
