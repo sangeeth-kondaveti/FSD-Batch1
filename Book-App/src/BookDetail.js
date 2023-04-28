@@ -1,13 +1,28 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { useEffect, useState } from "react";
+import { API } from "./global";
 
-export function BookDetail({ bookList }) {
+export function BookDetail() {
   const { bookid } = useParams();
+  const [book, setBook] = useState({});
+
   //console.log(bookList);
-  const book = bookList[bookid];
-  console.log(book);
+  // const book = bookList[bookid];
+  // console.log(book);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`${API}/books/${bookid}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBook(data);
+      });
+  }, []);
+
   return (
     <div>
       <iframe

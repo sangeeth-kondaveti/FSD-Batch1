@@ -5,17 +5,17 @@
   border-radius: 50%;
 }
 
-.App>div:nth-child(3)>.profile-pic {
+.App > div:nth-child(3) > .profile-pic {
   border-radius: 0px;
 }
 
 .add-color {
   display: flex;
-  margin-top: 50px
+  margin-top: 50px;
 }
 
 .book-container {
-  width: 300px
+  width: 300px;
 }
 
 .book-poster {
@@ -49,7 +49,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 16px;
-  margin-top: 50px
+  margin-top: 50px;
 }
 
 .add-book-form {
@@ -57,9 +57,15 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 16px;
-  margin-top: 50px
+  margin-top: 50px;
 }
 
 .book-detail-container {
-  max-width: 900px
+  max-width: 900px;
+}
+
+.icon-style {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

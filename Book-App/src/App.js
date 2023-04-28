@@ -15,6 +15,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ExampleContext from "./ExampleContext";
+import { NotFound } from "./NotFound";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -79,10 +80,11 @@ const INITIAL_BOOK_LIST = [
 
 export default function App() {
   //Lifting the state up - lifted from child to parent
-  const [bookList, setBookList] = useState(INITIAL_BOOK_LIST);
   //1. creating - createContext ✅
   //2. Publisher - provider - context.Provider ✅
   //3. Subscriber - useContext - useContext(context) ❌
+  const [bookList, setBookList] = useState(INITIAL_BOOK_LIST);
+
   const [mode, setMode] = useState("light");
 
   const theme = createTheme({
@@ -90,14 +92,6 @@ export default function App() {
       mode: mode,
     },
   });
-  //callback func, []=> dependancy array
-  useEffect(() => {}, []);
-
-  // fetch("https://64468f650431e885f015ac4f.mockapi.io/books")
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     setBookList(data);
-  //   });
 
   const navigate = useNavigate();
 
@@ -159,14 +153,8 @@ export default function App() {
       </nav> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/books"
-            element={<BookList bookList={bookList} setBookList={setBookList} />}
-          />
-          <Route
-            path="/books/:bookid"
-            element={<BookDetail bookList={bookList} />}
-          />
+          <Route path="/books" element={<BookList />} />
+          <Route path="/books/:bookid" element={<BookDetail />} />
           <Route
             path="/books/add"
             element={<AddBook bookList={bookList} setBookList={setBookList} />}
@@ -182,15 +170,4 @@ export default function App() {
     </ThemeProvider>
   );
   //JSX ends
-}
-
-function NotFound() {
-  return (
-    <div>
-      <img
-        src="https://cdn.svgator.com/images/2022/01/404-page-animation-example.gif"
-        alt="404notfound"
-      />
-    </div>
-  );
 }

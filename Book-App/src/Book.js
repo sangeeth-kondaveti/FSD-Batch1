@@ -5,8 +5,10 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { API } from "./global";
 
-export function Book({ book, id }) {
+export function Book({ book, id, deleteButton }) {
   const [show, setShow] = useState(true);
   //conditional styling
   const styles = {
@@ -51,7 +53,10 @@ export function Book({ book, id }) {
               {book.summary}
             </p> */}
         {show ? <p className="book-summary">{book.summary}</p> : ""}
-        <Counter />
+        <div className="icon-style">
+          <Counter />
+          {deleteButton}
+        </div>
       </div>
     </div>
   );
