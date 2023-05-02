@@ -1,40 +1,63 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { API } from "./global";
-import { useNavigate } from "react-router-dom";
-export function AddBook() {
-  const [name, setName] = useState("");
-  const [poster, setPoster] = useState("");
-  const [rating, setRating] = useState("");
-  const [summary, setSummary] = useState("");
-  const [trailer, setTrailer] = useState("");
+import { useNavigate, useParams } from "react-router-dom";
+export function EditBook() {
+  const { bookid } = useParams();
+  const [book, setBook] = useState(null);
+
+  useEffect(() => {
+    fetch(`${API}/books/${bookid}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBook(data);
+      });
+  }, []);
+
+  return book ? <EditBookForm bookData={book} /> : "Loading....";
+}
+
+function EditBookForm({ bookData }) {
+  console.log("BookData", bookData);
+  const [name, setName] = useState(bookData.name);
+  const [poster, setPoster] = useState(bookData.poster);
+  const [rating, setRating] = useState(bookData.rating);
+  const [summary, setSummary] = useState(bookData.summary);
+  const [trailer, setTrailer] = useState(bookData.trailer);
   const navigate = useNavigate();
   return (
     <div className="add-book-form">
       <TextField
+        value={name}
         label="Name"
         variant="outlined"
         onChange={(event) => setName(event.target.value)}
       />
 
       <TextField
+        value={poster}
         label="Poster"
         variant="outlined"
         onChange={(event) => setPoster(event.target.value)}
       />
       <TextField
+        value={rating}
         label="Rating"
         variant="outlined"
         onChange={(event) => setRating(event.target.value)}
       />
       <TextField
+        value={summary}
         label="Summary"
         variant="outlined"
         onChange={(event) => setSummary(event.target.value)}
       />
 
       <TextField
+        value={trailer}
         label="Trailer"
         variant="outlined"
         onChange={(event) => setTrailer(event.target.value)}
@@ -42,9 +65,10 @@ export function AddBook() {
       {/* copy the bookList and newbook */}
 
       <Button
+        color="success"
         variant="contained"
         onClick={() => {
-          const newBook = {
+          const updatedBook = {
             name: name,
             poster: poster,
             rating: rating,
@@ -55,9 +79,9 @@ export function AddBook() {
           //2. body - data -JSON.stringify
           //3. headers - JSON
 
-          fetch(`${API}/books`, {
-            method: "POST",
-            body: JSON.stringify(newBook),
+          fetch(`${API}/books/${bookData.id}`, {
+            method: "PUT",
+            body: JSON.stringify(updatedBook),
             headers: { "Content-Type": "application/json" },
           })
             .then((data) => data.json())
@@ -68,7 +92,7 @@ export function AddBook() {
           // setBookList([...bookList, newBook]);
         }}
       >
-        Add Book
+        SAVE
       </Button>
 
       {/* <button

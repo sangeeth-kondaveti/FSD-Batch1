@@ -116,3 +116,6 @@ Child to Parent - ❌
       R -  READ - GET
       U - UPDATE - PUT
       D - DELETE -DELETE
+
+      edit books - PUT method
+      BookDetails(id=> params) +  AddBook(form)

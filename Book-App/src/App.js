@@ -16,6 +16,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ExampleContext from "./ExampleContext";
 import { NotFound } from "./NotFound";
+import { EditBook } from "./EditBook";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -155,10 +156,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<BookList />} />
           <Route path="/books/:bookid" element={<BookDetail />} />
-          <Route
-            path="/books/add"
-            element={<AddBook bookList={bookList} setBookList={setBookList} />}
-          />
+          <Route path="/books/add" element={<AddBook />} />
+          <Route path="/books/edit/:bookid" element={<EditBook />} />
           <Route path="/game" element={<AddColor />} />
           <Route path="/data" element={<DisplayData />} />
           <Route path="/context" element={<ExampleContext />} />
@@ -171,3 +170,5 @@ export default function App() {
   );
   //JSX ends
 }
+
+

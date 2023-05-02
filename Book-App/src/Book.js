@@ -8,7 +8,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { API } from "./global";
 
-export function Book({ book, id, deleteButton }) {
+export function Book({ book, id, deleteButton, editButton }) {
   const [show, setShow] = useState(true);
   //conditional styling
   const styles = {
@@ -55,7 +55,7 @@ export function Book({ book, id, deleteButton }) {
         {show ? <p className="book-summary">{book.summary}</p> : ""}
         <div className="icon-style">
           <Counter />
-          {deleteButton}
+          {deleteButton} {editButton}
         </div>
       </div>
     </div>
