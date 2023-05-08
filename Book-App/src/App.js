@@ -18,6 +18,7 @@ import ExampleContext from "./ExampleContext";
 import { NotFound } from "./NotFound";
 import { EditBook } from "./EditBook";
 import { BasicForm } from "./BasicForm";
+import { TicTacToe } from "./TicTacToe";
 const INITIAL_BOOK_LIST = [
   {
     name: "Charlotte's web",
@@ -124,6 +125,9 @@ export default function App() {
             <Button color="inherit" onClick={() => navigate("/basic-form")}>
               Basic Form
             </Button>
+            <Button color="inherit" onClick={() => navigate("/tictactoe")}>
+              Tic Tac Toe
+            </Button>
             <Button
               style={{ marginLeft: "auto" }}
               color="inherit"
@@ -166,6 +170,7 @@ export default function App() {
           <Route path="/data" element={<DisplayData />} />
           <Route path="/context" element={<ExampleContext />} />
           <Route path="/basic-form" element={<BasicForm />} />
+          <Route path="/tictactoe" element={<TicTacToe />} />
           <Route path="/novel" element={<Navigate replace to="/books" />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate replace to="/404" />} />
