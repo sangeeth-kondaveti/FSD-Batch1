@@ -86,7 +86,7 @@ export default function App() {
   //1. creating - createContext ✅
   //2. Publisher - provider - context.Provider ✅
   //3. Subscriber - useContext - useContext(context) ❌
-  const [bookList, setBookList] = useState(INITIAL_BOOK_LIST);
+  //const [bookList, setBookList] = useState(INITIAL_BOOK_LIST);
 
   const [mode, setMode] = useState("light");
 
