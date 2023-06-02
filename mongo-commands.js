@@ -96,13 +96,11 @@ db.books.find({}, { name: 1, rating: 1 }).pretty();
 
 db.books.find({}, { name: 0, rating: 0 }).pretty();
 
-
 db.books.find({}, { _id: 0, name: 1, rating: 1 }).pretty();
 
 db.books.find({}, { name: 0, rating: 1 }).pretty();
 
 db.books.find({}, { name: 1, rating: 0 }).pretty();
-
 
 //sort
 
@@ -112,13 +110,58 @@ db.books.find().sort({ rating: 1 }).pretty();
 
 //desc = -1
 
-
 db.books.find().sort({ rating: -1 }).pretty();
 
-
-db.books.find({},{ _id: 0, name: 1}).sort({ name: 1 }).pretty();
-
+db.books.find({}, { _id: 0, name: 1 }).sort({ name: 1 }).pretty();
 
 //limit
 
-db.books.find({},{ _id: 0, name: 1}).sort({ name: 1 }).limit(5);
+db.books.find({}, { _id: 0, name: 1 }).sort({ name: 1 }).limit(5);
+
+//skip
+
+db.books.find({}, { _id: 0, name: 1 }).sort({ name: 1 }).limit(5).skip(2);
+
+//sort by rating but if rating is = then sort by name
+
+db.books.find({}, { _id: 0, name: 1, rating: 1 }).sort({ rating: -1 });
+
+db.books
+  .find({ rating: { $gt: 8 } }, { _id: 0, name: 1, rating: 1 })
+  .sort({ rating: 1 });
+
+//aggregation
+
+// Select sum(quantity) from orders where status="urgent"
+// group by productName
+
+db.orders.insertMany([
+  { _id: 0, productName: "Steel Beam", status: "new", quantity: 10 },
+  { _id: 1, productName: "Steel Beam", status: "urgent", quantity: 20 },
+  { _id: 2, productName: "Steel Beam", status: "urgent", quantity: 30 },
+  { _id: 3, productName: "Iron Rod", status: "new", quantity: 15 },
+  { _id: 4, productName: "Iron Rod", status: "urgent", quantity: 50 },
+  { _id: 5, productName: "Iron Rod", status: "urgent", quantity: 10 },
+]);
+
+db.orders.find().pretty();
+
+// Stage-1
+db.orders.aggregate([{ $match: { status: "urgent" } }]);
+
+//Stage-2
+// $match, $group, $sum - aggregate operators/functions
+
+db.orders.aggregate([
+  { $match: { status: "urgent" } },
+  {
+    $group: { _id: "$productName", totalUrgentQuantity: { $sum: "$quantity" } },
+  },
+]);
+
+//Task
+
+//1. Update the language field for all document
+//2. update rating for "The Secret" from 8.8 to 9
+//3. update the name from  "Charlotte's web  Charlotte's" to "The Charlotte's web"
+//4. Delete all books with rating < 7
